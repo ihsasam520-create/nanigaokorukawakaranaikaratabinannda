@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>割高な日本株 上位10社 ランキング</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'Yu Gothic', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 32px 28px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+
+    .update-date {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 5px 18px;
+      font-size: 0.9rem;
+      color: #f0e68c;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 0.92rem;
+    }
+
+    thead tr {
+      background: #2c3e50;
+      color: #fff;
+    }
+
+    thead th {
+      padding: 14px 16px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      transition: filter 0.15s;
+    }
+
+    tbody tr:hover {
+      filter: brightness(0.92);
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      vertical-align: middle;
+    }
+
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.15);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .stock-name {
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .code {
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+      font-size: 0.88rem;
+      background: rgba(0,0,0,0.12);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    .pbr-value {
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    .price-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .comment {
+      text-align: left;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      min-width: 200px;
+      max-width: 280px;
+    }
+
+    /* PBR gradient colors: rank 1 = darkest red, rank 10 = light orange/yellow */
+    .rank-1  { background-color: #d32f2f; color: #fff; }
+    .rank-2  { background-color: #e53935; color: #fff; }
+    .rank-3  { background-color: #e64a19; color: #fff; }
+    .rank-4  { background-color: #ef6c00; color: #fff; }
+    .rank-5  { background-color: #f57f17; color: #fff; }
+    .rank-6  { background-color: #f9a825; color: #333; }
+    .rank-7  { background-color: #fbc02d; color: #333; }
+    .rank-8  { background-color: #fdd835; color: #333; }
+    .rank-9  { background-color: #ffe57f; color: #333; }
+    .rank-10 { background-color: #fff9c4; color: #333; }
+
+    .market-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .market-prime   { background: #1565c0; color: #fff; }
+    .market-growth  { background: #2e7d32; color: #fff; }
+    .market-nagoya  { background: #6a1b9a; color: #fff; }
+    .market-standard{ background: #37474f; color: #fff; }
+
+    .approx {
+      font-size: 0.75rem;
+      opacity: 0.75;
+      margin-left: 2px;
+    }
+
+    .info-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-left: 4px solid #e53935;
+    }
+
+    .info-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #c62828;
+    }
+
+    .info-card p {
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .disclaimer-card {
+      border-left-color: #1565c0;
+    }
+
+    .disclaimer-card h3 {
+      color: #1565c0;
+    }
+
+    .auto-update-card {
+      border-left-color: #2e7d32;
+    }
+
+    .auto-update-card h3 {
+      color: #2e7d32;
+    }
+
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #888;
+      padding-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      tbody td, thead th {
+        padding: 10px 10px;
+      }
+
+      .comment {
+        font-size: 0.76rem;
+        min-width: 140px;
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚠️ 割高な日本株 上位10社 ランキング</h1>
+      <span class="update-date">📅 更新日：2026年5月7日（JST）</span>
+      <p class="subtitle">PBR（株価純資産倍率）が高い順にランキング。数値が高いほど帳簿価値に対して株価が割高であることを示します。</p>
+    </header>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>順位</th>
+            <th>銘柄名</th>
+            <th>コード</th>
+            <th>市場</th>
+            <th>株価（円）</th>
+            <th>PBR（倍）</th>
+            <th>コメント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rank 1 -->
+          <tr class="rank-1">
+            <td><span class="rank-badge">1</span></td>
+            <td class="stock-name">エスポア</td>
+            <td><span class="code">3260</span></td>
+            <td><span class="market-badge market-nagoya">名証ネクスト</span></td>
+            <td class="price-value">870<span class="approx">※推定</span></td>
+            <td class="pbr-value">233.24</td>
+            <td class="comment">超小型不動産・蓄電池事業会社。純資産がほぼゼロに近く異常なPBR水準。蓄電池用地取得などで話題になるが、投機的買いが主因。実態との乖離に注意。</td>
+          </tr>
+          <!-- Rank 2 -->
+          <tr class="rank-2">
+            <td><span class="rank-badge">2</span></td>
+            <td class="stock-name">イオレ</td>
+            <td><span class="code">2334</span></td>
+            <td><span class="market-badge market-growth">東証グロース</span></td>
+            <td class="price-value">398</td>
+            <td class="pbr-value">37.00</td>
+            <td class="comment">「らくらく連絡網」を展開するITサービス企業。Web3・ペット・旅行など多角化を推進も、赤字事業が複数存在。PER約289倍と収益水準に対し極めて高い評価。</td>
+          </tr>
+          <!-- Rank 3 -->
+          <tr class="rank-3">
+            <td><span class="rank-badge">3</span></td>
+            <td class="stock-name">アドバンテスト</td>
+            <td><span class="code">6857</span></td>
+            <td><span class="market-badge market-prime">東証プライム</span></td>
+            <td class="price-value">23,980</td>
+            <td class="pbr-value">25.36</td>
+            <td class="comment">半導体テスト装置の世界トップ。AI・HBM向け需要急増で2026年3月期売上高1兆円超を達成。高成長に裏付けられた評価だが、半導体サイクル悪化リスクに注意。</td>
+          </tr>
+          <!-- Rank 4 -->
+          <tr class="rank-4">
+            <td><span class="rank-badge">4</span></td>
+            <td class="stock-name">レーザーテック</td>
+            <td><span class="code">6920</span></td>
+            <td><span class="market-badge market-prime">東証プライム</span></td>
+            <td class="price-value">45,000</td>
+            <td class="pbr-value">17.92</td>
+            <td class="comment">EUV露光装置検査で事実上の独占企業。TSMC等の先端半導体投資が直接恩恵。空売り勢の標的にもなりやすく、株価変動が激しい。業績は高成長継続中。</td>
+          </tr>
+          <!-- Rank 5 -->
+          <tr class="rank-5">
+            <td><span class="rank-badge">5</span></td>
+            <td class="stock-name">ベイカレント・コンサルティング</td>
+            <td><span class="code">6532</span></td>
+            <td><span class="market-badge market-prime">東証プライム</span></td>
+            <td class="price-value">5,241</td>
+            <td class="pbr-value">13.41</td>
+            <td class="comment">AI・DX領域で急成長するITコンサルティング大手。2026年2月期3Q売上高26.8%増と高成長継続。高マージン体質が評価を支えるが、コンサル市場競争激化リスクも存在。</td>
+          </tr>
+          <!-- Rank 6 -->
+          <tr class="rank-6">
+            <td><span class="rank-badge">6</span></td>
+            <td class="stock-name">Sansan</td>
+            <td><span class="code">4443</span></td>
+            <td><span class="market-badge market-prime">東証プライム</span></td>
+            <td class="price-value">1,174</td>
+            <td class="pbr-value">9.40</td>
+            <td class="comment">名刺管理から請求書管理「Bill One」へ事業拡大。SaaS型の高継続収益モデルが評価。3Q売上高・利益それぞれ26%・131%増。電子インボイス普及が追い風。</td>
+          </tr>
+          <!-- Rank 7 -->
+          <tr class="rank-7">
+            <td><span class="rank-badge">7</span></td>
+            <td class="stock-name">freee</td>
+            <td><span class="code">4478</span></td>
+            <td><span class="market-badge market-growth">東証グロース</span></td>
+            <td class="price-value">2,320</td>
+            <td class="pbr-value">6.85</td>
+            <td class="comment">クラウド会計・給与計算ソフトウェア大手。インボイス制度導入で市場拡大が追い風。売上30.8%増と急成長も、依然赤字継続中。利益化の遅れが高PBRの背景。</td>
+          </tr>
+          <!-- Rank 8 -->
+          <tr class="rank-8">
+            <td><span class="rank-badge">8</span></td>
+            <td class="stock-name">マネーフォワード</td>
+            <td><span class="code">3994</span></td>
+            <td><span class="market-badge market-prime">東証プライム</span></td>
+            <td class="price-value">4,721</td>
+            <td class="pbr-value">6.27</td>
+            <td class="comment">家計簿アプリから法人向けSaaS事業へ展開。ARR成長率34.2%と高成長を維持。黒字化傾向が強まり再評価の動き。B2B SaaSの拡大継続が今後のカギ。</td>
+          </tr>
+          <!-- Rank 9 -->
+          <tr class="rank-9">
+            <td><span class="rank-badge">9</span></td>
+            <td class="stock-name">Will Smart</td>
+            <td><span class="code">175A</span></td>
+            <td><span class="market-badge market-growth">東証グロース</span></td>
+            <td class="price-value">約280<span class="approx">※推定</span></td>
+            <td class="pbr-value">5.98</td>
+            <td class="comment">モビリティ分野DX企業（ゼンリン系）。バス・鉄道向けシステム開発に特化し、物流・EV充電など新分野に参入。時価総額約15億円の小型成長株。</td>
+          </tr>
+          <!-- Rank 10 -->
+          <tr class="rank-10">
+            <td><span class="rank-badge">10</span></td>
+            <td class="stock-name">キーエンス</td>
+            <td><span class="code">6861</span></td>
+            <td><span class="market-badge market-prime">東証プライム</span></td>
+            <td class="price-value">76,460</td>
+            <td class="pbr-value">5.62</td>
+            <td class="comment">センサー・計測機器世界トップ。営業利益率50%超の超高収益企業。2026年3月期売上高10.4%増で過去最高益。高ROEの持続から高PBRを正当化する見方が多い。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-section">
+      <div class="info-card">
+        <h3>📖 割高株とは</h3>
+        <p>PBR（株価純資産倍率）が高い銘柄を指します。純資産（帳簿価値）と比べて株価が大幅に上回っており、高成長期待・希少性・投機的売買などが主な要因です。将来への過大な期待が剥落すると株価が急落するリスクがあります。</p>
+      </div>
+      <div class="info-card disclaimer-card">
+        <h3>⚠️ 免責事項</h3>
+        <p>本ページは情報提供のみを目的としており、投資は自己判断・自己責任でお願いします。掲載データは参考値であり、正確性・完全性を保証するものではありません。投資判断にあたっては最新の情報を各自でご確認ください。</p>
+      </div>
+      <div class="info-card auto-update-card">
+        <h3>🔄 データ更新について</h3>
+        <p>データは毎朝9時（JST）に自動更新されます。株価・PBRは前営業日終値ベースの参考値です。一部データは推定値を含みます（※推定と表示）。最新データは各金融情報サイトをご確認ください。</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>データ出典：日本経済新聞、Yahoo!ファイナンス、みんかぶ、IRBank 等を参考に集計</p>
+      <p style="margin-top:6px;">© 2026 割高日本株ランキング | 本データは投資助言ではありません</p>
+    </footer>
+  </div>
+</body>
+</html>
