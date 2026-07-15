@@ -16,7 +16,7 @@
     }
 
     .container {
-      max-width: 980px;
+      max-width: 1020px;
       margin: 0 auto;
     }
 
@@ -78,14 +78,9 @@
       white-space: nowrap;
     }
 
-    thead th:last-child {
-      text-align: left;
-    }
+    thead th:last-child { text-align: left; }
 
-    tbody tr {
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-
+    tbody tr { border-bottom: 1px solid rgba(0,0,0,0.06); }
     tbody tr:last-child { border-bottom: none; }
 
     tbody td {
@@ -98,17 +93,12 @@
     tbody td.comment {
       text-align: left;
       font-size: 0.83rem;
-      line-height: 1.5;
+      line-height: 1.55;
       color: #333;
       min-width: 220px;
     }
 
-    .name {
-      font-weight: 700;
-      text-align: left;
-      min-width: 130px;
-    }
-
+    .name { font-weight: 700; text-align: left; min-width: 130px; }
     .code { font-family: monospace; font-size: 0.9rem; color: #555; }
     .market { font-size: 0.82rem; color: #444; }
     .price { font-weight: 700; color: #1a5276; }
@@ -126,6 +116,7 @@
       color: #fff;
     }
 
+    /* Row background: deep red → light orange */
     tr.rank-1  { background: hsl(0,  80%, 88%); }
     tr.rank-2  { background: hsl(5,  78%, 90%); }
     tr.rank-3  { background: hsl(12, 72%, 91%); }
@@ -194,7 +185,7 @@
 
   <header>
     <h1>&#x26A0; 割高な日本株 上位10社 ランキング</h1>
-    <span class="update-date">&#x1F4C5; 更新日：2026年7月14日（JST）</span>
+    <span class="update-date">&#x1F4C5; 更新日：2026年7月15日（JST）</span>
     <p class="subtitle">PBR（株価純資産倍率）が高い順に並べた割高注意銘柄の一覧です</p>
   </header>
 
@@ -219,98 +210,98 @@
           <td class="code">175A</td>
           <td class="market">東証グロース</td>
           <td class="price">603</td>
-          <td class="pbr">計算不能</td>
-          <td class="comment">モビリティDXプラットフォーム提供（ゼンリン系）。自己資本比率0.7%・ROE -200.97%と財務が極度に毀損。純資産がほぼゼロのため PBR は算出不能レベル。赤字継続・資本超過リスク。第三者割当増資で財務再建中。</td>
+          <td class="pbr">339.7</td>
+          <td class="comment">ゼンリン系のモビリティDXプラットフォーム提供会社。自己資本比率0.7%・ROE -201%と財務が極度に毀損。純資産がほぼゼロのため PBR が340倍近くに急騰。第三者割当増資で財務再建中も赤字継続・資本超過リスクが最大の懸念。</td>
         </tr>
 
         <tr class="rank-2">
           <td><span class="rank-badge badge-2">2</span></td>
-          <td class="name">エスポア</td>
+          <td class="name">エスポア<br><small>（ESPOIR）</small></td>
           <td class="code">3260</td>
           <td class="market">名証ネクスト</td>
-          <td class="price">779</td>
-          <td class="pbr">206.08</td>
-          <td class="comment">不動産開発・販売・賃貸管理会社。2026年2月期に黒字転換を達成したが自己資本比率は1.2%と極めて薄い。蓄電池物件・不動産コンサル事業への転換中。純資産に対し株価が大幅超過しており投機的売買に注意。</td>
+          <td class="price">770</td>
+          <td class="pbr">206.6</td>
+          <td class="comment">不動産コーディネート&マネジメント会社。2026年2月期に全セグメント黒字化を達成したが自己資本比率は1.2%と極めて薄い。純資産に対し株価が200倍超を示す構造的割高状態。投機的売買や流動性枯渇による急落リスクに注意。</td>
         </tr>
 
         <tr class="rank-3">
           <td><span class="rank-badge badge-3">3</span></td>
-          <td class="name">オンコリス<br>バイオファーマ</td>
-          <td class="code">4588</td>
-          <td class="market">東証グロース</td>
-          <td class="price">2,694</td>
-          <td class="pbr">22.51</td>
-          <td class="comment">がん治療用ウイルス「テロメライシン（OBP-301）」を開発する創薬ベンチャー。製造販売承認申請・販売提携が進展も損失は拡大。承認取得時の爆発的成長期待が株価を押し上げている。バイナリーリスクが高い。</td>
+          <td class="name">アドバンテスト<br><small>（ADVANTEST）</small></td>
+          <td class="code">6857</td>
+          <td class="market">東証プライム</td>
+          <td class="price">29,830</td>
+          <td class="pbr">26.3</td>
+          <td class="comment">半導体テスター世界首位。AI・HBM メモリ需要急増で2026年3月期売上高1兆1,286億円（前期比+44.7%）・営業利益4,991億円（同+119%）と過去最高を更新。高成長を完全に織り込んだ水準で、半導体サイクルの転換時に急落リスクがある。</td>
         </tr>
 
         <tr class="rank-4">
           <td><span class="rank-badge badge-4">4</span></td>
-          <td class="name">ADRバイオ<br><small>（ADR120S）</small></td>
+          <td class="name">ADR120S<br><small>（旧 ADRバイオメディカルHD）</small></td>
           <td class="code">3750</td>
           <td class="market">東証グロース</td>
           <td class="price">873</td>
-          <td class="pbr">18.60</td>
-          <td class="comment">医療機器・再生医療・細胞治療を軸とするメディカル系投資持株会社。ROE -142%と大幅赤字継続中。Neocella事業の来期黒字化期待が先行しており、期待剥落時の急落リスクに注意が必要。</td>
+          <td class="pbr">18.6</td>
+          <td class="comment">医療機器・再生医療・細胞治療を軸とするメディカル系投資持株会社。主力商品の販売遅延で営業損失9億円を計上、ROE -142%。来期の Neocella 事業本格化・黒字化への期待が先行しており、期待剥落時の急落リスクに要注意。</td>
         </tr>
 
         <tr class="rank-5">
           <td><span class="rank-badge badge-5">5</span></td>
-          <td class="name">ヘリオス</td>
-          <td class="code">4593</td>
-          <td class="market">東証グロース</td>
-          <td class="price">305</td>
-          <td class="pbr">9.16</td>
-          <td class="comment">iPSC（人工多能性幹細胞）活用の再生医薬品開発企業。ARDS・脳梗塞急性期向けの HLCM051 を推進中。収益化前の開発段階で赤字継続。治験成否が株価を大きく左右するバイナリーリスクが存在する。</td>
+          <td class="name">東京エレクトロン<br><small>（TEL）</small></td>
+          <td class="code">8035</td>
+          <td class="market">東証プライム</td>
+          <td class="price">71,130</td>
+          <td class="pbr">15.8</td>
+          <td class="comment">半導体製造装置世界3位。AI向けDRAM・先端ロジック投資の本格化で2027年3月期上期は前年同期比+33%増収・+42%増益を見込む。PBR16倍はAI半導体ブームへの期待を完全織り込み。景気後退・設備投資サイクルの急変が最大リスク。</td>
         </tr>
 
         <tr class="rank-6">
           <td><span class="rank-badge badge-6">6</span></td>
-          <td class="name">アンジェス</td>
-          <td class="code">4563</td>
-          <td class="market">東証グロース</td>
-          <td class="price">48</td>
-          <td class="pbr">7.43</td>
-          <td class="comment">阪大発の遺伝子治療ベンチャー。2026年夏に米国で遺伝子治療薬の Pre-BLA を予定。株価は48円と低水準ながら純資産が極めて少なく高 PBR。配当なし・継続赤字でリスクが非常に高い状態が続いている。</td>
+          <td class="name">ラクス<br><small>（RAKUS）</small></td>
+          <td class="code">3923</td>
+          <td class="market">東証プライム</td>
+          <td class="price">1,035</td>
+          <td class="pbr">14.1</td>
+          <td class="comment">クラウド経費精算「楽楽精算」・IT人材派遣のSaaS企業。売上高23%増・営業利益70%増と急成長し、ROE 予想96%と超高収益体質。PBR14倍は成長プレミアムが上乗せされた水準。競合激化・SaaS 市場飽和リスクに注意が必要。</td>
         </tr>
 
         <tr class="rank-7">
           <td><span class="rank-badge badge-7">7</span></td>
-          <td class="name">freee（フリー）</td>
-          <td class="code">4478</td>
-          <td class="market">東証グロース</td>
-          <td class="price">2,186</td>
-          <td class="pbr">6.62</td>
-          <td class="comment">スモールビジネス向けクラウド会計・SaaS を提供。売上は前年比29.3%増・ARR 23.2%増と高成長継続。PER は約98倍と超割高水準。先行投資による赤字が続きキャッシュ消費が課題。金利上昇は逆風となる。</td>
+          <td class="name">Sansan<br><small>（Sansan Inc.）</small></td>
+          <td class="code">4443</td>
+          <td class="market">東証プライム</td>
+          <td class="price">1,174</td>
+          <td class="pbr">9.4</td>
+          <td class="comment">名刺DXから企業間取引DX（Bill One・その他）へ事業転換を進める SaaS 企業。2026年度売上高24%増・調整後営業利益137%増と業績が急加速。PBR9.4倍は先行成長への期待が先行した水準。先行投資局面での収益変動リスクに注意。</td>
         </tr>
 
         <tr class="rank-8">
           <td><span class="rank-badge badge-8">8</span></td>
-          <td class="name">メルカリ</td>
-          <td class="code">4385</td>
-          <td class="market">東証プライム</td>
-          <td class="price">4,578</td>
-          <td class="pbr">6.29</td>
-          <td class="comment">国内外のフリマアプリ・フィンテック事業を展開。Q3の売上+16.1%・営業利益+69.7%と大幅増益。収益性は改善傾向も米国事業への投資が重く、株価は理論値よりやや割高と評価される。</td>
+          <td class="name">タイミー<br><small>（Timee）</small></td>
+          <td class="code">215A</td>
+          <td class="market">東証グロース</td>
+          <td class="price">1,682</td>
+          <td class="pbr">8.9</td>
+          <td class="comment">スポットワーク人材マッチングのプラットフォーム。求人・求職マッチングの即時性で国内最大規模に成長。高成長継続も黒字化に向けた先行投資が続く。PBR8.9倍は将来の独占的地位への期待を反映。競合参入・労働規制変更がリスク。</td>
         </tr>
 
         <tr class="rank-9">
           <td><span class="rank-badge badge-9">9</span></td>
-          <td class="name">サンバイオ</td>
-          <td class="code">4592</td>
-          <td class="market">東証グロース</td>
-          <td class="price">950</td>
-          <td class="pbr">6.22</td>
-          <td class="comment">外傷性脳損傷治療の再生細胞薬「アクーゴ&#174;」が国内承認取得。承認後の出荷遅延で失望売りも発生。米国での後期臨床試験デザインを FDA と合意し中長期の商業化期待が株価を支える。10年超赤字継続に注意。</td>
+          <td class="name">サンリオ<br><small>（Sanrio Company）</small></td>
+          <td class="code">8136</td>
+          <td class="market">東証プライム</td>
+          <td class="price">1,120</td>
+          <td class="pbr">7.3</td>
+          <td class="comment">ハローキティ等グローバルIPライセンスで2026年3月期売上高1,940億円・営業利益778億円と過去最高を更新。ROE 41%超と優良企業だが、IPブランド価値への過大な期待と株価急騰でPBR7倍超。キャラクター人気失速リスクあり。</td>
         </tr>
 
         <tr class="rank-10">
           <td><span class="rank-badge badge-10">10</span></td>
-          <td class="name">マネーフォワード</td>
+          <td class="name">マネーフォワード<br><small>（Money Forward）</small></td>
           <td class="code">3994</td>
           <td class="market">東証プライム</td>
-          <td class="price">約4,300</td>
-          <td class="pbr">5.72</td>
-          <td class="comment">法人・個人向けクラウド会計・バックオフィス SaaS を提供。SaaS ARR が前年比34%増と急成長中。成長期待が高い反面、先行投資で黒字化は道半ば。金利上昇局面ではグロース株全般に逆風が続いている。</td>
+          <td class="price">4,999</td>
+          <td class="pbr">6.7</td>
+          <td class="comment">法人・個人向けクラウド会計・バックオフィス SaaS を提供。SaaS ARR が前年比34%増の467億円と急成長中。積極的な先行投資で営業損失が続く。PBR6.7倍は将来の収益化期待を反映。金利上昇局面でグロース株全般に逆風が続いている。</td>
         </tr>
 
       </tbody>
@@ -319,7 +310,7 @@
 
   <footer>
     <h2>&#x1F4D6; 割高株とは</h2>
-    <p>PBR（株価純資産倍率）が高い銘柄は、現在の純資産（帳簿上の企業価値）を大幅に超えた市場価格がついており、高成長期待・投機的買い・赤字継続などが背景にある"割高株"と見なされます。将来の業績が期待通りに実現しなかった場合、株価が急落するリスクがあります。</p>
+    <p>PBR（株価純資産倍率）が高い銘柄は、現在の純資産（帳簿上の企業価値）を大幅に超えた市場価格がついており、高成長期待・投機的買い・赤字継続などが背景にある"割高株"と見なされます。将来の業績が期待通りに実現しなかった場合、株価が急落するリスクがあります。投資の際は最新の財務情報を必ず確認し、十分に検討してください。</p>
     <div class="disclaimer">
       &#x26A0; 本ページは情報提供のみを目的としており、特定の銘柄への投資を推奨するものではありません。投資は自己判断・自己責任でお願いします。
     </div>
