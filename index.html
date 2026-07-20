@@ -1,290 +1,267 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>割高な日本株 上位10社 ランキング</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-    background: #f4f6f9;
-    color: #222;
-    line-height: 1.6;
-    padding: 16px;
-  }
-  header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #fff;
-    border-radius: 12px;
-    padding: 28px 24px 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-  }
-  header h1 {
-    font-size: clamp(1.2rem, 4vw, 1.9rem);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-  }
-  .update-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.85rem;
-    margin-top: 6px;
-  }
-  .update-badge span { color: #ffd166; font-weight: 700; }
-  .data-note {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.6);
-    margin-top: 8px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>割高な日本株 上位10社 ランキング</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'Yu Gothic', sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      padding: 16px;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 28px 24px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .updated {
+      font-size: 0.95rem;
+      color: #f0c040;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #aac4e8;
+      margin-top: 4px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    thead tr {
+      background: #1a1a2e;
+      color: #fff;
+    }
+    thead th {
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    tbody tr { transition: filter 0.15s; }
+    tbody tr:hover { filter: brightness(0.95); }
+    tbody td {
+      padding: 11px 10px;
+      font-size: 0.88rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    td.name { text-align: left; font-weight: 700; font-size: 0.92rem; }
+    td.comment { text-align: left; font-size: 0.80rem; line-height: 1.45; max-width: 260px; }
+    .rank { font-weight: 900; font-size: 1.1rem; }
 
-  .table-wrap { overflow-x: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-  table {
-    width: 100%;
-    min-width: 680px;
-    border-collapse: collapse;
-    background: #fff;
-    font-size: 0.88rem;
-  }
-  thead tr {
-    background: #1a1a2e;
-    color: #fff;
-  }
-  thead th {
-    padding: 12px 10px;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-  }
-  tbody tr { border-bottom: 1px solid #e0e4ea; transition: filter 0.15s; }
-  tbody tr:hover { filter: brightness(0.93); }
-  tbody td {
-    padding: 11px 10px;
-    vertical-align: middle;
-  }
-  .td-rank { text-align: center; font-size: 1.1rem; font-weight: 700; }
-  .td-name { font-weight: 600; }
-  .td-code, .td-market, .td-price, .td-pbr { text-align: center; white-space: nowrap; }
-  .td-price, .td-pbr { font-variant-numeric: tabular-nums; }
-  .td-pbr { font-weight: 700; }
-  .td-comment { font-size: 0.81rem; color: #333; min-width: 200px; }
+    /* Row color gradients by rank (red to orange to yellow) */
+    tr.r1  { background: #ff4444; }
+    tr.r2  { background: #ff5a1f; }
+    tr.r3  { background: #ff7a00; }
+    tr.r4  { background: #ff9500; }
+    tr.r5  { background: #ffb200; }
+    tr.r6  { background: #ffca00; }
+    tr.r7  { background: #f5d050; }
+    tr.r8  { background: #f0dc80; }
+    tr.r9  { background: #eeebb0; }
+    tr.r10 { background: #eef5c0; }
 
-  /* PBR gradient row colors - rank 1 darkest red, rank 10 light orange */
-  .rank-1  { background: #7f0000; color: #fff; }
-  .rank-2  { background: #a00000; color: #fff; }
-  .rank-3  { background: #c0180c; color: #fff; }
-  .rank-4  { background: #d63012; color: #fff; }
-  .rank-5  { background: #e04c1a; color: #fff; }
-  .rank-6  { background: #e86020; color: #fff; }
-  .rank-7  { background: #ef7a25; color: #fff; }
-  .rank-8  { background: #f59130; color: #fff; }
-  .rank-9  { background: #faa83a; color: #333; }
-  .rank-10 { background: #ffc050; color: #333; }
+    tr.r1 td, tr.r2 td, tr.r3 td, tr.r4 td { color: #fff; }
+    tr.r5 td, tr.r6 td, tr.r7 td, tr.r8 td, tr.r9 td, tr.r10 td { color: #222; }
 
-  .rank-1 .td-comment,
-  .rank-2 .td-comment,
-  .rank-3 .td-comment,
-  .rank-4 .td-comment,
-  .rank-5 .td-comment,
-  .rank-6 .td-comment,
-  .rank-7 .td-comment,
-  .rank-8 .td-comment { color: rgba(255,255,255,0.93); }
-  .rank-9 .td-comment,
-  .rank-10 .td-comment { color: rgba(0,0,0,0.75); }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-prime  { background: #003087; color: #fff; }
+    .badge-growth { background: #006400; color: #fff; }
+    .badge-nagoya { background: #7a3900; color: #fff; }
 
-  .pbr-sub { font-size: 0.72rem; font-weight: 400; display: block; opacity: 0.85; }
+    .footer-box {
+      margin-top: 28px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    .footer-box h2 {
+      font-size: 0.97rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+      border-left: 4px solid #e74c3c;
+      padding-left: 8px;
+    }
+    .footer-box .disclaimer {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: #fff8e1;
+      border-left: 4px solid #f5d050;
+      border-radius: 4px;
+      color: #5a4000;
+      font-size: 0.82rem;
+    }
+    .auto-update {
+      margin-top: 10px;
+      font-size: 0.80rem;
+      color: #888;
+      text-align: right;
+    }
 
-  .legend {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin: 14px 0 20px;
-    align-items: center;
-    font-size: 0.78rem;
-    color: #555;
-  }
-  .legend-bar {
-    height: 14px;
-    width: 200px;
-    border-radius: 7px;
-    background: linear-gradient(to right, #7f0000, #e04c1a, #ffc050);
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .footer-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
-    margin-top: 22px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 16px 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    font-size: 0.84rem;
-  }
-  .card h3 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #1a1a2e;
-    border-left: 4px solid #e04c1a;
-    padding-left: 8px;
-  }
-  .card.disclaimer { background: #fff8f7; }
-  .card.schedule { background: #f5f8ff; }
-
-  @media (max-width: 480px) {
-    header { padding: 18px 14px; }
-    thead th, tbody td { padding: 9px 7px; }
-    .td-comment { font-size: 0.76rem; min-width: 150px; }
-  }
-</style>
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.2rem; }
+      td.comment { font-size: 0.75rem; }
+      thead th, tbody td { padding: 8px 6px; font-size: 0.80rem; }
+    }
+  </style>
 </head>
 <body>
+<div class="container">
+  <header>
+    <h1>&#127942; 割高な日本株 上位10社 ランキング</h1>
+    <div class="updated">&#128197; 更新日: 2026年7月20日（JST）</div>
+    <div class="subtitle">PBR（株価純資産倍率）が高い銘柄を割高指標として選定</div>
+  </header>
 
-<header>
-  <h1>割高な日本株 上位10社 ランキング</h1>
-  <div class="update-badge">更新日：<span>2026年7月19日（JST）</span></div>
-  <p class="data-note">※ PBR（株価純資産倍率）上位順。一部データはウェブ調査による参考値を含みます。</p>
-</header>
-
-<div class="legend">
-  <span>PBR 高 → 低：</span>
-  <span class="legend-bar"></span>
-  <span>（赤が高PBR、オレンジが相対的に低PBR）</span>
-</div>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr>
-        <th>順位</th>
-        <th>銘柄名</th>
-        <th>コード</th>
-        <th>市場</th>
-        <th>株価（円）</th>
-        <th>PBR（倍）</th>
-        <th>割高・注目コメント</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="rank-1">
-        <td class="td-rank">1</td>
-        <td class="td-name">ウィルスマ（Will Smart）</td>
-        <td class="td-code">175A</td>
-        <td class="td-market">東証グロース</td>
-        <td class="td-price">650</td>
-        <td class="td-pbr">計算不能<span class="pbr-sub">純資産極小</span></td>
-        <td class="td-comment">モビリティDX・EV充電IoT企業（ゼンリングループ）。純資産がほぼゼロで実質PBR無限大。赤字継続中で財務基盤なし。年初来高値899円・安値586円と乱高下。投機的買いが主導。</td>
-      </tr>
-      <tr class="rank-2">
-        <td class="td-rank">2</td>
-        <td class="td-name">エスポア</td>
-        <td class="td-code">3260</td>
-        <td class="td-market">名証スタンダード</td>
-        <td class="td-price">779</td>
-        <td class="td-pbr">206.08</td>
-        <td class="td-comment">分譲マンション・不動産開発。純資産約2,000万円に対し時価総額約45億円。2026年2月期に新事業で黒字転換し株価急騰でPBR極度に高騰。営業CF▲9.28億円と財務基盤は極めて脆弱。</td>
-      </tr>
-      <tr class="rank-3">
-        <td class="td-rank">3</td>
-        <td class="td-name">アドバンテスト</td>
-        <td class="td-code">6857</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">29,640</td>
-        <td class="td-pbr">28.0</td>
-        <td class="td-comment">半導体テスト装置の世界最大手。AI向けSoCテスタ・HBM向けメモリテスタが主力。2026年3月期売上+44.7%・営業利益+118.8%の超高成長。ROE58%超。7月17日に▲7.2%急落の場面も。</td>
-      </tr>
-      <tr class="rank-4">
-        <td class="td-rank">4</td>
-        <td class="td-name">ADR120S</td>
-        <td class="td-code">3750</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">—</td>
-        <td class="td-pbr">18.60</td>
-        <td class="td-comment">再生医療・細胞治療機器販売（旧ADRバイオメディカル）。2026年度売上高1,470%増・黒字化見通しで急騰。時価総額約78億円の小型株。財務基盤脆弱で投機的売買主導の株価形成。</td>
-      </tr>
-      <tr class="rank-5">
-        <td class="td-rank">5</td>
-        <td class="td-name">東京エレクトロン</td>
-        <td class="td-code">8035</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">64,750</td>
-        <td class="td-pbr">15.96</td>
-        <td class="td-comment">半導体製造装置の世界3位。先端半導体（GAA・EUV多重露光）向け装置の中長期需要が評価。2026年3月期は増収減益（営業利益▲10.4%）。7月17日▲8.7%急落。対中輸出規制もリスク。</td>
-      </tr>
-      <tr class="rank-6">
-        <td class="td-rank">6</td>
-        <td class="td-name">ラクス</td>
-        <td class="td-code">3923</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">1,015</td>
-        <td class="td-pbr">13.74</td>
-        <td class="td-comment">「楽楽精算」「楽楽明細」など中小企業向けクラウドSaaS。ROE予想96.8%という驚異的高収益への成長プレミアム。電帳法・インボイス対応需要を享受。生成AIプロダクト連携を強化中。</td>
-      </tr>
-      <tr class="rank-7">
-        <td class="td-rank">7</td>
-        <td class="td-name">ディスコ</td>
-        <td class="td-code">6146</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">72,560</td>
-        <td class="td-pbr">12.0<span class="pbr-sub">推定値</span></td>
-        <td class="td-comment">半導体ウエハー精密加工装置（切る・削る・磨く）で世界シェアNo.1。AI向け3Dパッケージング・HBM製造工程の需要急増で6期連続過去最高業績更新。営業利益率40%超の高収益。</td>
-      </tr>
-      <tr class="rank-8">
-        <td class="td-rank">8</td>
-        <td class="td-name">サンリオ</td>
-        <td class="td-code">8136</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">1,229</td>
-        <td class="td-pbr">7.25</td>
-        <td class="td-comment">ハローキティ・クロミ等キャラクターIPライセンス事業。2026年3月期は売上+33.9%・営業利益+50.3%と過去最高更新。K-POPコラボでグローバル人気爆発。ROE41.6%の高収益IPモデル。</td>
-      </tr>
-      <tr class="rank-9">
-        <td class="td-rank">9</td>
-        <td class="td-name">freee</td>
-        <td class="td-code">4478</td>
-        <td class="td-market">東証グロース</td>
-        <td class="td-price">1,900</td>
-        <td class="td-pbr">7.01</td>
-        <td class="td-comment">中小企業・個人事業主向けクラウド会計SaaS「freee会計」。2026年6月期に初の営業黒字化達成・売上高419億円（+26%）へ上方修正。インボイス・電帳法需要が下支え。マネーフォワードとの競争激化。</td>
-      </tr>
-      <tr class="rank-10">
-        <td class="td-rank">10</td>
-        <td class="td-name">マネーフォワード</td>
-        <td class="td-code">3994</td>
-        <td class="td-market">東証プライム</td>
-        <td class="td-price">5,334</td>
-        <td class="td-pbr">6.82</td>
-        <td class="td-comment">法人向けバックオフィスSaaS「マネーフォワードクラウド」と個人向け家計管理アプリ。SaaS ARR前年比+34.2%の高成長。法人カード等フィンテック事業も拡大中。時価総額2,824億円。</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="footer-cards">
-  <div class="card">
-    <h3>割高株とは</h3>
-    <p>PBR（株価純資産倍率）やPER（株価収益率）が市場・業種平均を大きく上回る銘柄のことです。高成長期待や希少価値が背景の場合もありますが、過度な期待が剥落すると株価が急落するリスクも伴います。</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>順位</th>
+          <th>銘柄名</th>
+          <th>コード</th>
+          <th>市場</th>
+          <th>株価（円）</th>
+          <th>PBR（倍）</th>
+          <th>コメント</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="r1">
+          <td class="rank">1</td>
+          <td class="name">エスポア</td>
+          <td>3260</td>
+          <td><span class="badge badge-nagoya">名証ネクスト</span></td>
+          <td>776</td>
+          <td>205.87</td>
+          <td class="comment">不動産デベロップメント。売上高が前年比81.6%増と急回復するも純資産が極めて薄く、PBRは200倍超。投機的買いと業績回復期待が株価を大きく押し上げている。赤字継続リスクに要注意。</td>
+        </tr>
+        <tr class="r2">
+          <td class="rank">2</td>
+          <td class="name">アドバンテスト</td>
+          <td>6857</td>
+          <td><span class="badge badge-prime">東証プライム</span></td>
+          <td>27,505</td>
+          <td>25.08</td>
+          <td class="comment">半導体テスト装置の世界最大手。AI向け高性能半導体の需要急増で売上高44.7%増・営業利益118%増の超好業績。PBR25倍超は高成長継続を相当織り込む水準。AI需要失速が最大リスク。</td>
+        </tr>
+        <tr class="r3">
+          <td class="rank">3</td>
+          <td class="name">ADR120S</td>
+          <td>3750</td>
+          <td><span class="badge badge-growth">東証グロース</span></td>
+          <td>750</td>
+          <td>16.11</td>
+          <td class="comment">旧ADRバイオメディカルHDから社名変更し情報通信業へ業容シフト中の小型成長株。事業転換への期待でPBR16倍超の高評価を受けるが、実態が伴わない投機的な側面も。業績改善が急務。</td>
+        </tr>
+        <tr class="r4">
+          <td class="rank">4</td>
+          <td class="name">東京エレクトロン</td>
+          <td>8035</td>
+          <td><span class="badge badge-prime">東証プライム</span></td>
+          <td>65,100</td>
+          <td>15.96</td>
+          <td class="comment">世界最大級の半導体製造装置メーカー。AI半導体需要に乗り業績は過去最高水準。株価は高値から調整局面（-8%）も高ROEがPBR16倍近辺を支える。半導体投資サイクル反転がリスク。</td>
+        </tr>
+        <tr class="r5">
+          <td class="rank">5</td>
+          <td class="name">Sansan</td>
+          <td>4443</td>
+          <td><span class="badge badge-prime">東証プライム</span></td>
+          <td>1,174</td>
+          <td>9.40</td>
+          <td class="comment">法人名刺管理から営業DX・請求書管理へ拡大するSaaS企業。売上24.4%増・営業利益137%増と急成長中。PBR9倍超は高成長継続への強い期待。競合激化・景気後退が主なリスク。</td>
+        </tr>
+        <tr class="r6">
+          <td class="rank">6</td>
+          <td class="name">Will Smart</td>
+          <td>175A</td>
+          <td><span class="badge badge-growth">東証グロース</span></td>
+          <td>603</td>
+          <td>6.67</td>
+          <td class="comment">モビリティ特化のDX企業（ゼンリン系）。公共交通・EV充電分野でIoTサービスを展開中。直近は純資産がマイナスで約4.5億円の第三者割当増資を検討中。財務基盤の脆弱さと希薄化リスクに注意。</td>
+        </tr>
+        <tr class="r7">
+          <td class="rank">7</td>
+          <td class="name">freee（フリー）</td>
+          <td>4478</td>
+          <td><span class="badge badge-growth">東証グロース</span></td>
+          <td>2,394</td>
+          <td>6.62</td>
+          <td class="comment">中小企業向けクラウド会計・人事労務SaaSのリーダー。インボイス制度・電子帳簿保存法が強い追い風。有料ユーザー急増で黒字転換が視野に入る。PBR6倍超は高成長期待の証。競合台頭がリスク。</td>
+        </tr>
+        <tr class="r8">
+          <td class="rank">8</td>
+          <td class="name">メルカリ</td>
+          <td>4385</td>
+          <td><span class="badge badge-prime">東証プライム</span></td>
+          <td>4,799</td>
+          <td>6.34</td>
+          <td class="comment">国内フリマアプリ首位。フィンテック「メルペイ」が成長するも米国事業は苦戦継続。PBR6倍超は国内事業の堅調とフィンテック事業への期待を反映。米国事業の継続コストとM&A動向がリスク。</td>
+        </tr>
+        <tr class="r9">
+          <td class="rank">9</td>
+          <td class="name">カバー</td>
+          <td>5253</td>
+          <td><span class="badge badge-growth">東証グロース</span></td>
+          <td>1,640</td>
+          <td>5.39</td>
+          <td class="comment">Vtuber「ホロライブ」を展開するIP企業。公式スマホゲーム「ホロライブドリームス」(7/23リリース)など成長ドライバー豊富。PBR5倍超は高い期待の証だが、タレントの人気変動リスクに注意。</td>
+        </tr>
+        <tr class="r10">
+          <td class="rank">10</td>
+          <td class="name">エムスリー</td>
+          <td>2413</td>
+          <td><span class="badge badge-prime">東証プライム</span></td>
+          <td>1,927</td>
+          <td>3.03</td>
+          <td class="comment">医師向け医療情報プラットフォームの最大手。売上23.3%増・営業利益16.8%増と好業績。ただし成長鈍化懸念からPBRはピーク時（20倍超）から大幅低下。現水準でも中長期的なバリュエーション注意。</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="card disclaimer">
-    <h3>免責事項</h3>
-    <p>本ページは情報提供のみを目的としており、特定の有価証券の売買を勧誘するものではありません。投資は自己判断・自己責任でお願いします。</p>
-  </div>
-  <div class="card schedule">
-    <h3>更新スケジュール</h3>
-    <p>データは毎朝9時（JST）に自動更新されます。表示される株価・PBRはウェブ調査時点の参考値であり、リアルタイム情報ではありません。</p>
+
+  <div class="footer-box">
+    <h2>割高株とは</h2>
+    <p>PBR（株価純資産倍率）は株価を1株あたり純資産で割った指標です。1倍を大きく上回るほど純資産対比で「割高」とされ、高成長期待・希少技術・投機的売買などが株価を帳簿価値以上に押し上げている状態を示します。PBRが高い銘柄は成長余地が大きい一方、期待剥落時の株価下落リスクも相応に大きくなります。</p>
+    <div class="disclaimer">
+      &#9888;&#65039; 本ページは情報提供のみを目的としており、投資は自己判断・自己責任でお願いします。記載のデータは公開情報をもとに作成していますが、正確性・完全性を保証するものではありません。
+    </div>
+    <div class="auto-update">&#128260; データは毎朝9時（JST）に自動更新されます</div>
   </div>
 </div>
-
 </body>
 </html>
