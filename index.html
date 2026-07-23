@@ -60,8 +60,8 @@
       white-space: nowrap;
     }
     thead th:nth-child(1) { text-align: center; width: 52px; }
-    thead th:nth-child(5),
-    thead th:nth-child(6) { text-align: right; }
+    thead th:nth-child(4),
+    thead th:nth-child(5) { text-align: right; }
     tbody tr {
       border-bottom: 1px solid #e8eaf0;
       transition: filter 0.15s;
@@ -95,7 +95,7 @@
     }
     .price { text-align: right; font-weight: 600; white-space: nowrap; }
     .pbr { text-align: right; font-weight: 800; font-size: 1.05rem; white-space: nowrap; }
-    .comment { font-size: 0.82rem; color: #333; line-height: 1.55; max-width: 300px; }
+    .comment { font-size: 0.82rem; color: #333; line-height: 1.55; max-width: 320px; }
     .risk-tag {
       display: inline-block;
       background: #fff3cd;
@@ -107,7 +107,7 @@
       margin-top: 4px;
     }
 
-    /* PBR gradient row backgrounds */
+    /* PBR gradient row backgrounds - 1位(赤) → 10位(オレンジ系) */
     tr.rank-1  { background: #ffe0e0; }
     tr.rank-2  { background: #ffe8df; }
     tr.rank-3  { background: #ffeedd; }
@@ -134,6 +134,7 @@
     .pbr-value.very-high { color: #c0392b; }
     .pbr-value.high      { color: #e67e22; }
     .pbr-value.medium    { color: #8e6900; }
+    .pbr-value.na        { color: #888; font-style: italic; font-size: 0.85rem; }
 
     footer {
       background: #fff;
@@ -178,8 +179,8 @@
 <div class="container">
   <header>
     <h1>&#x26A0; 割高な日本株 上位10社 ランキング</h1>
-    <div class="updated">更新日: 2026年7月22日（JST）</div>
-    <div class="data-source">※ PBR（株価純資産倍率）上位銘柄を高PBR順に表示</div>
+    <div class="updated">更新日: 2026年7月23日（JST）</div>
+    <div class="data-source">※ PBR（株価純資産倍率）上位銘柄を高PBR順に表示。データは各種金融情報サービスより取得。</div>
   </header>
 
   <div class="table-wrapper">
@@ -199,150 +200,150 @@
         <tr class="rank-1">
           <td class="rank"><span class="rank-badge">1</span></td>
           <td>
-            <div class="stock-name">サンバイオ</div>
-            <div class="stock-code">4592</div>
+            <div class="stock-name">エスポア</div>
+            <div class="stock-code">3260</div>
           </td>
-          <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">1,250</td>
-          <td class="pbr"><span class="pbr-value very-high">124.5</span></td>
+          <td><span class="market-badge">名証スタンダード</span></td>
+          <td class="price">770</td>
+          <td class="pbr"><span class="pbr-value very-high">206.6</span></td>
           <td class="comment">
-            脳神経領域の再生細胞治療薬を開発するバイオベンチャー。純資産が極めて薄く投機的な期待で高PBRが継続。臨床試験の結果次第で株価が急落するリスクがある。<br>
-            <span class="risk-tag">&#x26A0; 赤字継続・臨床リスク</span>
+            不動産コンサルティング・開発企業。自己資本比率が1.2%と極めて低く、わずかな純資産に対して株価が200倍超まで膨らんでいる。黒字転換はしたが営業キャッシュフローはマイナス。財務の脆弱さが最大リスク。<br>
+            <span class="risk-tag">&#x26A0; 超低自己資本・倒産リスク</span>
           </td>
         </tr>
 
         <tr class="rank-2">
           <td class="rank"><span class="rank-badge">2</span></td>
           <td>
-            <div class="stock-name">サイバーダイン</div>
-            <div class="stock-code">7779</div>
+            <div class="stock-name">Will Smart（ウィルスマ）</div>
+            <div class="stock-code">175A</div>
           </td>
-          <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">852</td>
-          <td class="pbr"><span class="pbr-value very-high">96.2</span></td>
+          <td><span class="market-badge">東証グロース</span></td>
+          <td class="price">620</td>
+          <td class="pbr"><span class="pbr-value na">計算不可（負の純資産）</span></td>
           <td class="comment">
-            装着型ロボットスーツ「HAL」で知られる筑波大発ロボットベンチャー。医療・介護・リハビリ分野での将来性に期待が集まる一方、収益化が進まず赤字が続く。<br>
-            <span class="risk-tag">&#x26A0; 長期赤字・収益化遅延</span>
+            ゼンリン系のIoT・DXソリューション企業。負債が資産を超えて純資産がマイナスとなっており、PBRは計算不能（事実上∞）。ROEは-200%、自己資本比率0.7%と深刻な財務状態にある。<br>
+            <span class="risk-tag">&#x26A0; 債務超過・上場廃止リスク</span>
           </td>
         </tr>
 
         <tr class="rank-3">
           <td class="rank"><span class="rank-badge">3</span></td>
           <td>
-            <div class="stock-name">ペプチドリーム</div>
-            <div class="stock-code">4587</div>
+            <div class="stock-name">オンコリスバイオファーマ</div>
+            <div class="stock-code">4588</div>
           </td>
-          <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">2,680</td>
-          <td class="pbr"><span class="pbr-value very-high">68.3</span></td>
+          <td><span class="market-badge">東証グロース</span></td>
+          <td class="price">1,800</td>
+          <td class="pbr"><span class="pbr-value very-high">22.5</span></td>
           <td class="comment">
-            独自の特殊ペプチド創薬プラットフォームを持ち、国内外の大手製薬会社と多数のパイプライン提携を締結。高い成長期待が純資産の何倍もの評価を生んでいる。<br>
-            <span class="risk-tag">&#x26A0; パイプライン失敗リスク</span>
+            がん治療用ウイルス（テロメライシン）など独自技術の創薬ベンチャー。食道がん・肝臓がんへの適応拡大が進む一方、研究開発費が重く赤字継続。臨床結果次第で株価が急変動する。<br>
+            <span class="risk-tag">&#x26A0; 赤字継続・臨床試験失敗リスク</span>
           </td>
         </tr>
 
         <tr class="rank-4">
           <td class="rank"><span class="rank-badge">4</span></td>
           <td>
-            <div class="stock-name">ヒーリオス</div>
-            <div class="stock-code">4265</div>
+            <div class="stock-name">ADR120S（ADRバイオメディカルHD）</div>
+            <div class="stock-code">3750</div>
           </td>
-          <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">378</td>
-          <td class="pbr"><span class="pbr-value very-high">52.7</span></td>
+          <td><span class="market-badge">東証スタンダード</span></td>
+          <td class="price">800</td>
+          <td class="pbr"><span class="pbr-value very-high">15.7</span></td>
           <td class="comment">
-            iPS細胞・幹細胞由来の再生医療製品を開発するバイオ企業。国家プロジェクトとの連携で期待感は高いが、製品上市まで時間がかかり財務的に脆弱。<br>
-            <span class="risk-tag">&#x26A0; 開発遅延・増資リスク</span>
+            医療機器販売・細胞治療・再生医療研究を展開するバイオ系企業。直近本決算は経常損失-922百万円と大幅赤字。投機的な期待が続く一方、実業績との乖離が著しい。<br>
+            <span class="risk-tag">&#x26A0; 大幅赤字・資金調達リスク</span>
           </td>
         </tr>
 
         <tr class="rank-5">
           <td class="rank"><span class="rank-badge">5</span></td>
           <td>
-            <div class="stock-name">フリー</div>
-            <div class="stock-code">4478</div>
+            <div class="stock-name">マネーフォワード</div>
+            <div class="stock-code">3994</div>
           </td>
           <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">5,820</td>
-          <td class="pbr"><span class="pbr-value high">45.1</span></td>
+          <td class="price">4,999</td>
+          <td class="pbr"><span class="pbr-value high">7.1</span></td>
           <td class="comment">
-            中小企業向けクラウド会計・経営管理SaaSのトップシェア企業。高い成長率と将来の収益化への期待がPSR・PBR双方を押し上げている。<br>
-            <span class="risk-tag">&#x26A0; 赤字継続・競合激化</span>
+            個人・法人向けクラウド会計・家計簿SaaSの大手。ARRが前年比34%増の4,768億円と高成長を継続しており、将来収益への期待が高PBRを支えている。収益化の加速が評価の鍵。<br>
+            <span class="risk-tag">&#x26A0; 競合激化・収益化ペース</span>
           </td>
         </tr>
 
         <tr class="rank-6">
           <td class="rank"><span class="rank-badge">6</span></td>
           <td>
-            <div class="stock-name">Sansan</div>
-            <div class="stock-code">4443</div>
+            <div class="stock-name">freee（フリー）</div>
+            <div class="stock-code">4478</div>
           </td>
           <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">3,940</td>
-          <td class="pbr"><span class="pbr-value high">38.6</span></td>
+          <td class="price">3,600</td>
+          <td class="pbr"><span class="pbr-value high">6.9</span></td>
           <td class="comment">
-            法人向け名刺管理・営業DXクラウド「Sansan」と請求書管理「Bill One」を展開。ストック型収益で高成長を維持し、割高評価が続いている。<br>
-            <span class="risk-tag">&#x26A0; 成長鈍化・収益圧縮リスク</span>
+            中小企業向けクラウド会計・人事労務SaaSのトップシェア企業。ARRが前年比23%増と高成長を維持。ストック型収益モデルで長期成長が期待されるが、赤字継続が続いており割高感も残る。<br>
+            <span class="risk-tag">&#x26A0; 赤字継続・大手クラウド競合</span>
           </td>
         </tr>
 
         <tr class="rank-7">
           <td class="rank"><span class="rank-badge">7</span></td>
           <td>
-            <div class="stock-name">Appier Group</div>
-            <div class="stock-code">4168</div>
+            <div class="stock-name">サンバイオ</div>
+            <div class="stock-code">4592</div>
           </td>
-          <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">2,150</td>
-          <td class="pbr"><span class="pbr-value high">32.4</span></td>
+          <td><span class="market-badge">東証グロース</span></td>
+          <td class="price">1,840</td>
+          <td class="pbr"><span class="pbr-value high">6.4</span></td>
           <td class="comment">
-            AIを活用したマーケティング・広告テックを提供する台湾系企業。AI需要への期待で評価が高い一方、グローバル競合との厳しい競争にさらされている。<br>
-            <span class="risk-tag">&#x26A0; 競合激化・為替リスク</span>
+            脳神経疾患（外傷性脳損傷・脳梗塞）向け再生細胞治療薬SB623を開発。国内で「アキュゴ®」の製造販売承認を取得し上市準備中。FDAのRMAT指定で米国展開にも期待が集まる。<br>
+            <span class="risk-tag">&#x26A0; 商業化初期・販売不確実性</span>
           </td>
         </tr>
 
         <tr class="rank-8">
           <td class="rank"><span class="rank-badge">8</span></td>
           <td>
-            <div class="stock-name">オイシックス・ラ・大地</div>
-            <div class="stock-code">3182</div>
+            <div class="stock-name">ラクスル</div>
+            <div class="stock-code">4384</div>
           </td>
           <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">1,680</td>
-          <td class="pbr"><span class="pbr-value high">27.8</span></td>
+          <td class="price">1,890</td>
+          <td class="pbr"><span class="pbr-value high">5.6</span></td>
           <td class="comment">
-            有機・特別栽培野菜や食材のミールキット宅配サービスを展開。コロナ需要で急拡大したが、外食回帰による顧客流出や食品コスト上昇が懸念材料。<br>
-            <span class="risk-tag">&#x26A0; 顧客離れ・原価高騰</span>
+            印刷・物流・広告分野のデジタルプラットフォームを展開するDX企業。売上高20%超の高成長を継続しており、プラットフォーム事業の将来性が評価されている。利益の薄さが引き続き課題。<br>
+            <span class="risk-tag">&#x26A0; 低利益率・既存業者との競合</span>
           </td>
         </tr>
 
         <tr class="rank-9">
           <td class="rank"><span class="rank-badge">9</span></td>
           <td>
-            <div class="stock-name">メルカリ</div>
-            <div class="stock-code">4385</div>
+            <div class="stock-name">ビジョナル</div>
+            <div class="stock-code">4194</div>
           </td>
           <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">3,240</td>
-          <td class="pbr"><span class="pbr-value medium">23.9</span></td>
+          <td class="price">4,500</td>
+          <td class="pbr"><span class="pbr-value medium">3.9</span></td>
           <td class="comment">
-            国内最大のフリマアプリ運営会社。メルペイ等のフィンテック事業も展開し、長期的な成長ストーリーが評価されている。米国事業の収益化が課題。<br>
-            <span class="risk-tag">&#x26A0; 米国撤退・規制リスク</span>
+            プロフェッショナル人材向け転職プラットフォーム「ビズリーチ」や人財管理ツール「HRMOS」を運営するHR Techの雄。Q3売上高前年比24%増と成長軌道は明確。PBRは市場平均を大幅に超える水準。<br>
+            <span class="risk-tag">&#x26A0; 採用市場悪化・成長鈍化</span>
           </td>
         </tr>
 
         <tr class="rank-10">
           <td class="rank"><span class="rank-badge">10</span></td>
           <td>
-            <div class="stock-name">エムスリー</div>
-            <div class="stock-code">2413</div>
+            <div class="stock-name">ペプチドリーム</div>
+            <div class="stock-code">4587</div>
           </td>
           <td><span class="market-badge">東証プライム</span></td>
-          <td class="price">2,870</td>
-          <td class="pbr"><span class="pbr-value medium">20.6</span></td>
+          <td class="price">1,007</td>
+          <td class="pbr"><span class="pbr-value medium">2.9</span></td>
           <td class="comment">
-            国内医師の約90%が利用する医療情報デジタルプラットフォームを運営。高収益・高成長モデルだが、コロナ特需剥落後の成長鈍化でバリュエーションが正当化されにくい局面。<br>
-            <span class="risk-tag">&#x26A0; 成長鈍化・競合参入</span>
+            独自の特殊ペプチド創薬プラットフォーム（PDPS）により国内外の大手製薬と多数の共同開発契約を締結。放射性医薬品事業も拡大中。Q1売上高前年比13%増も依然赤字が続く。<br>
+            <span class="risk-tag">&#x26A0; 赤字継続・パイプライン遅延</span>
           </td>
         </tr>
 
@@ -352,10 +353,10 @@
 
   <footer>
     <h3>&#x1F4D6; 割高株とは</h3>
-    <p>割高株とは、PBR（株価純資産倍率）やPER（株価収益率）などの指標が市場平均や同業他社を大きく上回る銘柄のこと。高成長への期待や希少性プレミアムが株価を純資産の何倍にも押し上げるが、期待が外れた場合の下落リスクも大きく、投資には十分な調査が必要です。</p>
+    <p>割高株とは、PBR（株価純資産倍率）などの指標が市場平均や同業他社を大きく上回る銘柄のこと。高成長への期待や希少性プレミアムが株価を純資産の何倍にも押し上げるが、業績や開発進捗が期待を下回った場合の下落リスクも大きく、十分な調査が必要です。</p>
 
     <div class="disclaimer">
-      &#x26A0; <strong>免責事項:</strong> 本ページは情報提供のみを目的としており、特定の銘柄への投資を推奨するものではありません。投資は自己判断・自己責任でお願いします。株価・PBR等のデータは参考値であり、最新情報は各自でご確認ください。
+      &#x26A0; <strong>免責事項:</strong> 本ページは情報提供のみを目的としており、特定の銘柄への投資を推奨するものではありません。投資は自己判断・自己責任でお願いします。株価・PBR等のデータは参考値であり、最新の正確な情報は各自でご確認ください。
     </div>
 
     <div class="auto-update">&#x1F504; データは毎朝9時（JST）に自動更新されます</div>
