@@ -122,6 +122,10 @@
     }
     .pbr-badge.nm { background: rgba(100,100,100,0.12); color: #4b5563; }
 
+    /* Price change indicators */
+    .chg-up   { color: #dc2626; font-size: 0.72rem; font-weight: 600; }
+    .chg-down { color: #2563eb; font-size: 0.72rem; font-weight: 600; }
+
     /* ===== DEFINITION & NOTICES ===== */
     .card {
       background: #fff;
@@ -178,7 +182,7 @@
 
 <header>
   <h1>割高な日本株 上位10社 ランキング</h1>
-  <div class="update-tag">更新日：<b>2026年8月1日（JST）</b></div>
+  <div class="update-tag">更新日：<b>2026年8月2日（JST）</b></div>
 </header>
 
 <div class="container">
@@ -207,9 +211,9 @@
           <td class="col-name">エスポア</td>
           <td class="col-code">3260</td>
           <td class="col-mkt"><span class="mkt m-next">名証ネクスト</span></td>
-          <td class="col-price">779</td>
-          <td class="col-pbr"><span class="pbr-badge">206.1倍</span></td>
-          <td class="col-cmt">不動産企画・宅地開発・分譲マンション事業。2026年2月期は売上高＋82%で黒字転換したが、自己資本が極端に薄くPBRが200倍超の異常な水準。財務基盤が脆弱で業績悪化時のリスクが高い。</td>
+          <td class="col-price">742<br><span class="chg-down">▼37</span></td>
+          <td class="col-pbr"><span class="pbr-badge">196倍</span></td>
+          <td class="col-cmt">不動産企画・宅地開発・分譲マンション事業。2026年2月期は売上高＋82%で黒字転換したが、自己資本が極端に薄くPBRが200倍近い異常な水準が継続。財務基盤の脆弱さから業績悪化時の急落リスクが高い。</td>
         </tr>
 
         <tr class="r2">
@@ -224,22 +228,22 @@
 
         <tr class="r3">
           <td class="col-rank">3</td>
-          <td class="col-name">ADRバイオメディカル<br>ホールディングス</td>
-          <td class="col-code">3750</td>
-          <td class="col-mkt"><span class="mkt m-standard">東証スタンダード</span></td>
-          <td class="col-price">787</td>
-          <td class="col-pbr"><span class="pbr-badge">18.60倍</span></td>
-          <td class="col-cmt">脂肪由来再生幹細胞の医療機器「セルーション」開発。経常赤字▲9.2億円が継続中も、再生医療・細胞治療市場への期待から高PBRが維持される。黒字化時期は不透明でリスク高い。</td>
+          <td class="col-name">アドバンテスト</td>
+          <td class="col-code">6857</td>
+          <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
+          <td class="col-price">30,392<br><span class="chg-up">▲1,877</span></td>
+          <td class="col-pbr"><span class="pbr-badge">30倍</span></td>
+          <td class="col-cmt">半導体テスタ世界最大手。2027年3月期1Qが売上＋39%・営業利益＋53%・四半期純利益＋94%と過去最高を更新し上方修正。AI向けHBMメモリ需要急増が追い風。半導体サイクル転換時の急落リスクあり。</td>
         </tr>
 
         <tr class="r4">
           <td class="col-rank">4</td>
-          <td class="col-name">アドバンテスト</td>
-          <td class="col-code">6857</td>
-          <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
-          <td class="col-price">28,515</td>
-          <td class="col-pbr"><span class="pbr-badge">28.08倍</span></td>
-          <td class="col-cmt">半導体テスタ世界最大手。AI向けHBMメモリ需要急増で2027年3月期1Qは売上＋39%・営業利益＋53%と過去最高を更新。成長期待が高PBRを維持するが、半導体サイクル転換時の急落リスクあり。</td>
+          <td class="col-name">ADRバイオメディカル<br>ホールディングス</td>
+          <td class="col-code">3750</td>
+          <td class="col-mkt"><span class="mkt m-standard">東証スタンダード</span></td>
+          <td class="col-price">787</td>
+          <td class="col-pbr"><span class="pbr-badge">18.6倍</span></td>
+          <td class="col-cmt">脂肪由来再生幹細胞の医療機器「セルーション」開発。経常赤字▲9.2億円が継続中も、再生医療・細胞治療市場への期待から高PBRが維持される。黒字化時期は不透明でリスクが高い。</td>
         </tr>
 
         <tr class="r5">
@@ -247,9 +251,9 @@
           <td class="col-name">レーザーテック</td>
           <td class="col-code">6920</td>
           <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
-          <td class="col-price">47,650</td>
-          <td class="col-pbr"><span class="pbr-badge">18.94倍</span></td>
-          <td class="col-cmt">EUV露光マスク検査装置で世界独占シェアを持つ。顧客がTSMC・インテル等少数に集中しており、特定顧客の設備投資変動に業績が大きく左右される。短期的な調整リスクが潜在。</td>
+          <td class="col-price">38,360<br><span class="chg-up">▲4,740</span></td>
+          <td class="col-pbr"><span class="pbr-badge">15.2倍</span></td>
+          <td class="col-cmt">EUV露光マスク検査装置で世界独占シェア。7月末に株価が急反落後、前日比＋14.1%の急反発。8月6日決算発表予定。顧客（TSMC・インテル等）の設備投資変動に業績が大きく左右されるリスクあり。</td>
         </tr>
 
         <tr class="r6">
@@ -257,9 +261,9 @@
           <td class="col-name">東京エレクトロン</td>
           <td class="col-code">8035</td>
           <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
-          <td class="col-price">65,100</td>
-          <td class="col-pbr"><span class="pbr-badge">14.47倍</span></td>
-          <td class="col-cmt">半導体製造装置の世界3位メーカー。AI・先端半導体特需で2027年3月期1Qは売上＋33%・営業利益＋46%と好調。PER約52倍の高値圏で推移しており、中国向け輸出規制強化が最大のリスク要因。</td>
+          <td class="col-price">57,296<br><span class="chg-down">▼7,804</span></td>
+          <td class="col-pbr"><span class="pbr-badge">12.7倍</span></td>
+          <td class="col-cmt">半導体製造装置の世界3位メーカー。7月以降に株価が約25%下落し割高感はやや緩和。AI・先端半導体特需は継続しており2027年3月期1Qは売上＋33%・営業利益＋46%。中国向け輸出規制強化が最大リスク。</td>
         </tr>
 
         <tr class="r7">
@@ -267,9 +271,9 @@
           <td class="col-name">フリー</td>
           <td class="col-code">4478</td>
           <td class="col-mkt"><span class="mkt m-growth">東証グロース</span></td>
-          <td class="col-price">2,568</td>
-          <td class="col-pbr"><span class="pbr-badge">7.53倍</span></td>
-          <td class="col-cmt">中小企業向けクラウド会計・人事労務SaaS。売上成長率29%超と高成長だが赤字継続中。将来の市場独占ポジション獲得への期待から高PBRが正当化されている。黒字化遅延は株価下落リスクになり得る。</td>
+          <td class="col-price">2,182<br><span class="chg-down">▼386</span></td>
+          <td class="col-pbr"><span class="pbr-badge">6.4倍</span></td>
+          <td class="col-cmt">中小企業向けクラウド会計・人事労務SaaS。株価が2,568円から2,182円に下落するも依然高PBR。売上成長率29%超と高成長だが赤字継続中。黒字化遅延は株価下落リスクになり得る。</td>
         </tr>
 
         <tr class="r8">
@@ -278,7 +282,7 @@
           <td class="col-code">3769</td>
           <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
           <td class="col-price">9,658</td>
-          <td class="col-pbr"><span class="pbr-badge">6.21倍</span></td>
+          <td class="col-pbr"><span class="pbr-badge">6.2倍</span></td>
           <td class="col-cmt">国内決済インフラで独占的地位を確立し安定成長を継続。現在のPBRは歴史的高値圏にあり、決済競争激化・フィンテック新興参入が中長期的なリスクとなる可能性がある。</td>
         </tr>
 
@@ -287,9 +291,9 @@
           <td class="col-name">マネーフォワード</td>
           <td class="col-code">3994</td>
           <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
-          <td class="col-price">5,984</td>
-          <td class="col-pbr"><span class="pbr-badge">5.72倍</span></td>
-          <td class="col-cmt">法人向け財務管理SaaS。ARR成長率34%超と高成長を維持するが赤字継続でバリュエーション高止まり。人件費増・競合激化・黒字化遅延が株価下押しリスク。中期的な成長鈍化に要注意。</td>
+          <td class="col-price">4,380<br><span class="chg-down">▼1,604</span></td>
+          <td class="col-pbr"><span class="pbr-badge">4.2倍</span></td>
+          <td class="col-cmt">法人向け財務管理SaaS。中間決算で売上高＋24.8%・ARR＋34.2%と高成長を維持。株価は5,984円から4,380円に下落も赤字継続でバリュエーション高止まり。人件費増・競合激化が引き続きリスク。</td>
         </tr>
 
         <tr class="r10">
@@ -298,7 +302,7 @@
           <td class="col-code">2413</td>
           <td class="col-mkt"><span class="mkt m-prime">東証プライム</span></td>
           <td class="col-price">1,739</td>
-          <td class="col-pbr"><span class="pbr-badge">3.03倍</span></td>
+          <td class="col-pbr"><span class="pbr-badge">3.0倍</span></td>
           <td class="col-cmt">医師30万人以上が利用する医療情報プラットフォームで国内独占的地位。成長率鈍化・海外展開遅れが懸念材料。コロナ特需後の利益水準低下を受け株価が長期調整局面にあり割高感が台頭中。</td>
         </tr>
 
@@ -306,21 +310,21 @@
     </table>
   </div>
 
-  <p class="source-note">※ N/M = Not Meaningful（自己資本がマイナスのためPBRが計算不能）　※ 株価はJST 2026年7月末〜8月初の概算値　※ PBRの順位は各社の公開財務情報をもとに算出した概算値です</p>
+  <p class="source-note">※ N/M = Not Meaningful（自己資本がマイナスのためPBRが計算不能）　※ 株価はJST 2026年8月1日〜2日の概算値　※ 前日比は前営業日終値との比較（概算）　※ PBRは各社の公開財務情報をもとに算出した概算値です</p>
 
   <div class="card">
-    <h2>💡 割高株とは</h2>
+    <h2>&#x1F4A1; 割高株とは</h2>
     <p>PBR（株価純資産倍率）が市場平均や業種平均を大きく上回る株を「割高株」と呼びます。高い成長期待・投機的な売買・黒字転換への思惑・赤字継続中の先行評価などが原因となることが多く、業績が期待を下回ると株価が急落するリスクがあります。投資の際は企業の実態や財務状況を十分に確認してください。</p>
   </div>
 
   <div class="disclaimer">
-    ⚠️ <strong>免責事項：</strong>本ページは情報提供のみを目的としており、<strong>投資は自己判断・自己責任</strong>でお願いします。掲載情報の正確性・完全性を保証するものではなく、投資勧誘を目的とするものでもありません。投資判断の最終責任はご自身にあります。<br>
+    &#x26A0;&#xFE0F; <strong>免責事項：</strong>本ページは情報提供のみを目的としており、<strong>投資は自己判断・自己責任</strong>でお願いします。掲載情報の正確性・完全性を保証するものではなく、投資勧誘を目的とするものでもありません。投資判断の最終責任はご自身にあります。<br>
     <br>
-    📊 データ出典：みんかぶ・Yahoo!ファイナンス・日本経済新聞・株探・各社IR情報（2026年7月〜8月時点の公開情報）
+    &#x1F4CA; データ出典：みんかぶ・Yahoo!ファイナンス・日本経済新聞・株探・各社IR情報（2026年7月〜8月時点の公開情報）
   </div>
 
   <div class="auto-update-banner">
-    🔄 データは毎朝9時（JST）に自動更新されます
+    &#x1F504; データは毎朝9時（JST）に自動更新されます
   </div>
 
 </div>
